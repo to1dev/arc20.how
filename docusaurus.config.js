@@ -64,7 +64,7 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             // Replace with your project's social card
-            image: 'img/docusaurus-social-card.jpg',
+            image: 'img/arc20-social-card.png',
             navbar: {
                 title: '原子协议',
                 logo: {
@@ -102,16 +102,16 @@ const config = {
                         title: '社区',
                         items: [
                             {
-                                label: 'Stack Overflow',
-                                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                                label: '推特',
+                                href: 'https://x.com/atomicalsxyz',
+                            },
+                            {
+                                label: 'Telegram',
+                                href: 'https://t.me/AtomicalsProtocol',
                             },
                             {
                                 label: 'Discord',
                                 href: 'https://discordapp.com/invite/docusaurus',
-                            },
-                            {
-                                label: 'Twitter',
-                                href: 'https://twitter.com/docusaurus',
                             },
                         ],
                     },
