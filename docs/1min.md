@@ -4,44 +4,14 @@ sidebar_position: 0
 
 # 一分钟简介
 
-给我一分钟，让你认识Atomicals协议！
+给我一分钟⏰，带你认识Atomicals协议！
 
-## Getting Started
+🚀 欢迎来到未来金融世界！请容我向你介绍一个基于比特币区块链的超酷炫协议：Atomicals ⚛️，它是比特币区块链上的原生协议，通过染色比特币的UTXO让你可以在比特币区块链上发行任意资产！想象一下，你能够在没有银行或任何中介的情况下安全地发行、交易和管理你的数字宝藏（Digital Objects），而这一切都由独一无二的比特币去中心化网络提供安全保障和共识！是不是听起来就像是科幻电影里的情节？但这一切，在Atomicals协议下都变成了现实！🌈
 
-Get started by **creating a new site**.
+💡 有了 Atomicals ⚛️，你就像是拥有了一把魔法钥匙，可以打开一个全新的数字资产世界；不管是独一无二的数字艺术品，还是稀有的收藏品，甚至是你自己创造的任意数字内容，都可以通过Atomicals协议铸造到比特币区块链上！而协议独有的Bitwork工作量证明PoW机制不仅解决了排名共识问题，也让发行和铸造过程充满了乐趣！与此同时，协议所依赖的比特币网络也让你得以安全、透明的管理和交易任意数字资产。这不仅仅是关于金钱的转移，更是关于价值、文化和身份的新型表达！🎨
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+🎢 想象一下，通过 Atomicals ⚛️你可以在比特币区块链网络上轻松发行一份数字资产或者创建一个数字藏品，然后在全球范围内与人交换，没有复杂的手续，一切都如此简单和自由。Atomicals 协议就像是一场游乐园之旅，让每一个人都能成为自己故事的主人公，探索、交易、创造，没有界限，没有限制。而这一切都建立在比特币区块链上，永久保存，无需妥协！🌍
 
-### What you'll need
+🎉 所以，现在，马上！拿起你的数字工具，加入这场由 Atomicals ⚛️协议引领的区块链革命！这不仅是一次技术上的飞跃，更是向自由、创新和无限可能的致敬。让我们一起在比特币的海洋中航行，探索那些未知的宝藏吧！🚢
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+🌌 来吧，系好安全带，未来已来，你的征程将是星辰大海！🚀🪐
