@@ -57,6 +57,14 @@ button {
     font-style: normal;
 }
 
+.green {
+    color: rgb(34 197 94);
+}
+
+.blue {
+    color: rgb(59 130 246);
+}
+
 pre,
 code {
     font-style: italic;
