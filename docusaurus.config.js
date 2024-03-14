@@ -129,7 +129,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: `&copy; 2023-${new Date().getFullYear()} 协议遵循MIT许可证, 网站由ARC20社区维护`,
+                copyright: `&copy; 2023-${new Date().getFullYear()} 协议遵循 MIT 和 GPLv3 许可证, 网站由ARC20社区维护`,
             },
             prism: {
                 theme: prismThemes.github,
