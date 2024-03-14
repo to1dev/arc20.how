@@ -141,7 +141,7 @@ const config = {
             },
         }),
 
-    plugins: [[require.resolve('docusaurus-lunr-search'), { languages: ['en', 'zh'] }]],
+    //plugins: [[require.resolve('docusaurus-lunr-search'), { languages: ['en', 'zh'] }]],
 
     scripts: [
         /*{
@@ -150,14 +150,14 @@ const config = {
             defer: true,
             'data-some-attribute': 'some-value',
         },*/
-        {
+        /*{
             src: 'js/lunr.stemmer.support.js',
             async: true,
         },
         {
             src: 'js/lunr.zh.js',
             async: true,
-        }
+        }*/
     ],
 };
 
