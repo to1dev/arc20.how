@@ -17,7 +17,7 @@ const FeatureList = [
         Svg: require('@site/static/img/container.svg').default,
         description: (
             <>
-                容器专为NFT设计，用于表示 NFT 和元数据的集合，可以包含多个NFT和元数据，去中心化铸造在比特币区块链上，并可以密封永久保存。
+                容器专为NFT设计，用于表示 NFT 和元数据的集合，可以包含多个NFT和元数据，去中心化铸造在比特币区块链上，并可以永久密封保存。
             </>
         ),
     },

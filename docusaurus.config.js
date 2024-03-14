@@ -30,8 +30,8 @@ const config = {
     // useful metadata like html lang. For example, if your site is Chinese, you
     // may want to replace "en" with "zh-Hans".
     i18n: {
-        defaultLocale: 'en',
-        locales: ['en'],
+        defaultLocale: 'zh-Hans',
+        locales: ['en', 'zh-Hans'],
     },
 
     presets: [
@@ -141,14 +141,24 @@ const config = {
             },
         }),
 
-    /*scripts: [
-        {
+    plugins: [[require.resolve('docusaurus-lunr-search'), { languages: ['en', 'zh'] }]],
+
+    scripts: [
+        /*{
             src: 'js/fonts.js',
             async: true,
             defer: true,
             'data-some-attribute': 'some-value',
+        },*/
+        {
+            src: 'js/lunr.stemmer.support.js',
+            async: true,
         },
-    ],*/
+        {
+            src: 'js/lunr.zh.js',
+            async: true,
+        }
+    ],
 };
 
 
