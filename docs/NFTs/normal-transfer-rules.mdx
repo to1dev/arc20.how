@@ -2,4 +2,8 @@
 sidebar_position: 2
 ---
 
-# Normal Transfer Rules
+# 普通转移规则
+
+了解 Atomicals 非同质化代币（NFT）转移规则
+
+诸如领域（Realms）和容器（containers）之类的 NFT 的正常操作是使用输入到输出的先进先出（FIFO）分配方式。可以这样理解：包含 NFT 的最早输入将被分配给第一个可用输出，然后包含 NFT 的下一个输入分配给下一个输出，依此类推，直到所有输入中的 NFT 都被分配完毕。如果预期的输出是一个不可消费的 OP_RETURN，或者没有足够的输出来容纳输入序列，则 NFT 总是被分配到第 0 个输出。

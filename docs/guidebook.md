@@ -97,6 +97,6 @@ Atomicals 使我们的数字生活重获主权和自我所有权。只需一个�
 
 import Admonition from '@theme/Admonition';
 
-<Admonition type="tip" icon="⚡" title="开始铸造您的第一个 Atomical 数字对象">
+<Admonition type="tip" icon="" title="⚡开始铸造您的第一个 Atomical 数字对象">
 [下载并安装 Atomicals JavaScript 命令行工具](https://github.com/atomicals/atomicals-js)，并按照快速启动指南进行操作，在不到 2 分钟内铸造您的 NFT、集合或领域名称。
 </Admonition>
