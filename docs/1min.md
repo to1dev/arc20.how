@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# 一分钟简介
+# 一分钟指南
 
 给我一分钟⏰，带你认识Atomicals协议！
 
