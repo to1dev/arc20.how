@@ -106,12 +106,12 @@ const config = {
                                 href: 'https://x.com/atomicalsxyz',
                             },
                             {
-                                label: 'Telegram',
+                                label: '电报群',
                                 href: 'https://t.me/AtomicalsProtocol',
                             },
                             {
                                 label: 'Discord',
-                                href: 'https://discordapp.com/invite/docusaurus',
+                                href: '#',
                             },
                         ],
                     },
