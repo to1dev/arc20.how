@@ -1,0 +1,37 @@
+---
+sidebar_position: 9
+---
+
+# 永久文件存储
+
+在不需要创建动态 Atomical 数字对象的情况下，以不可变的方式存储文件和数据
+
+## 示例：在链上存储不可变的图像文件
+
+使用命令行工具，执行以下命令来设置示例图像文件的数据。使用 `store-file` 命令（链上的 dat 操作）来指定文件的路径和链上的文件名（下面示例中的目标名称为 `"image.png"`）
+
+```bash showLineNumbers
+// immutably store an image on-chain to reference in the container metadata
+# highlight-next-line
+npm run cli store-file ./path/to/image.png image.png --satsbyte=10
+
+Success sent tx:  db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f
+{
+  "success": true,
+  "data": {
+    "commitTxid": "b57bad8c0b7f58a552574fafc16b6efbbb3bf966b9ccfb24f03580f9462b5997",
+    "revealTxid": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f",
+    "dataId": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0"
+  }
+}
+```
+
+我们将使用揭示位置（reveal location）`db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0` 来引用下面的图片 `image.png`。
+
+现在文件已经在链上了，使用[递归和引用的 URN 语法](./recursion-and-references)来引用该文件。
+
+import Admonition from '@theme/Admonition';
+
+<Admonition type="tip" icon="" title="⚡开始铸造您的第一个 Atomical 数字对象">
+[下载并安装 Atomicals JavaScript 命令行工具](https://github.com/atomicals/atomicals-js)，并按照快速入门指南进行操作，在不到 2 分钟内铸造您的 NFT、集合或领域名称。
+</Admonition>

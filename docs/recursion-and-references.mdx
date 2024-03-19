@@ -1,0 +1,225 @@
+---
+sidebar_position: 8
+---
+
+# 递归和引用
+
+通过递归和引用来构建 Atomicals 数字对象的层次结构和包含内容
+
+为了简化不同 Atomicals 资源的包含和引用，定义了以下统一资源名称（URN）。
+
+注意：在涉及到 Atomicals 中的引用时，建议使用数据的顶级字段 `ctx` 来引入或包含其他 Atomicals 和数据文件的引用。`ctx` 字段专门为此目的保留。
+
+以下是在 `ctx` 字段中使用引用的递归示例：
+
+```json showLineNumbers
+{
+  // Any Atomical data above...
+  "ctx": {
+     // Implied to always get the latest data for an atomical:
+     "resourcename": "atom:btc:id:<atomical_id>/mydata",
+     // Gets permanent data file image.png at the dat_id
+     // highlight-next-line
+     "icon": "atom:btc:dat:<dat_id>/image.png",
+     // Gets the minted "name" property for a collection
+     // highlight-next-line
+     "collection-name": "atom:btc:container:<dat_id>$name",
+     // Gets the latest version of import.js located at a realm name
+     "assetbuilder.js": "atom:btc:realm:<realm_name>/import.js",
+  },
+  // Another other Atomical data ...
+}
+```
+
+**注意**：在适用的场合，最好使用 `"dat"` 命令来引用链上资源。当使用容器、领域或动态引用（使用斜杠 `"/"`）时，它可能指的是资源。
+
+## 惯例
+
+规范是使用前缀 `"atom:btc"` 来标识比特币（BTC）网络上的 Atomicals 协议资源。可以通过 `atomical_id`、容器名称或（子）领域名称，以及通过 `data_id` 引用不可变文件数据来定位数字对象。
+
+Atomicals 统一资源名称（URN）的基础格式是：
+
+`atom:<chain>:<ref_type>:<identifier>[$ or / [<file>]]`
+
+其中：
+
+`chain`：引用的区块链，对于比特币设置为 "BTC"
+
+`ref_type`：引用的类型。当前支持 "id"、"container"、"realm" 和 "dat"（分别对应 atomical id，容器，领域和数据）
+
+`identifier`：对应于引用类型的标识符。如 atomical_id、容器名称、领域名称，或在 "dat" 情况下不可变数据的**_揭示位置_**（reveal location）
+
+`$ or /`：是指引用 Atomical 的铸造（原始）数据（使用美元符号 $）还是动态（最新）数据（使用斜杠 /）。你会注意到对于 dat 引用类型，$ 或 / 都是可接受的，并且无论如何都会返回相同的数据。
+
+`file`：文件名称是可选的，如果省略，则返回有关资源的一般信息
+
+我们的理念是，我们应该能够根据 Atomicals 数字对象的类型明确引用它们。在基本层面，每种类型（例如容器和领域）也可以通过 atomical_id 来引用。此外，我们应该始终能够获取原始的铸造数据，并获取存储文件的最新版本，包括该文件的每个修订版本（按 txid、版本号或块高度）。
+
+## 通过 Atomical ID 引用
+
+获取一般信息
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>
+```
+
+例如：
+
+```plain showLineNumbers
+atom:btc:id:14a0d7c98304bf5ac9a5addceb1de0ce4e840641f82d71d84cebbdac427c1fc3i0
+```
+
+获取原始铸造的 JSON 数据
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>$
+```
+
+获取原始铸造的文件
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>$links
+```
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>$info.pdf
+```
+
+获取最新的动态数据状态
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>/
+```
+
+获取文件的最新版本
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>/image.png
+```
+
+获取文件的特定版本
+
+```plain showLineNumbers
+atom:btc:id:<atomical_id>/image.png@[txid or version number or blockheight]
+```
+
+`[txid or version number or blockheight]` 可以是以下形式：
+
+* 文件有效更新之一的 txid 的十六进制
+* 以 "v" 开头的版本号，如 "v1"
+* 该文件截至该区块高度的状态
+
+## 通过容器名称引用
+
+获取一般信息
+
+```plain showLineNumbers
+atom:btc:container:<containerName>
+```
+
+示例：
+
+```plain showLineNumbers
+atom:btc:id:my-coolcontainer-name
+```
+
+获取原始铸造的数据
+
+```plain showLineNumbers
+atom:btc:container:<containerName>$
+```
+
+获取最新的动态数据状态
+
+```plain showLineNumbers
+atom:btc:container:<containerName>/
+```
+
+获取原始铸造的文件
+
+```plain showLineNumbers
+atom:btc:container:<containerName>$image.jpg
+```
+
+获取文件的最新版本
+
+```plain showLineNumbers
+atom:btc:container:<containerName>/items
+```
+
+获取文件的特定版本
+
+```plain showLineNumbers
+atom:btc:container:<containerName>/items@[txid or version number]
+```
+
+## 通过领域引用
+
+获取一般信息
+
+```plain showLineNumbers
+atom:btc:realm:<realmName>
+```
+
+领域名称可以是顶级领域或任何子领域
+
+示例：
+
+```plain showLineNumbers
+atom:btc:realm:myrealm
+atom:btc:realm:myrealm.somesubrealm
+atom:btc:realm:myrealm.somesubrealm.thirdlevel-subrealm
+```
+
+获取文件的最新版本
+
+```plain showLineNumbers
+atom:btc:realm:<realmName>/profile
+```
+
+获取文件的特定版本
+
+```plain showLineNumbers
+atom:btc:realm:<realmName>/profile@[txid or version number]
+```
+
+`[txid or version number]` 可以是以下形式：
+
+* 文件有效更新之一的 txid 的十六进制
+* 以 "v" 开头的版本号，如 "v1"
+* 该文件截至该区块高度的状态
+
+## 通过 ARC20 (同质化代币) 引用
+
+获取一般信息
+
+```plain showLineNumbers
+atom:btc:arc:<ticker>
+```
+
+_这里的 ticker 可以是 ARC20 代币名称_
+
+获取铸造的原始数据
+
+```plain showLineNumbers
+atom:btc:arc:<ticker>$
+atom:btc:arc:<ticker>/icon.png
+```
+
+获取代币的事件种子（feed）
+
+```plain showLineNumbers
+atom:btc:arc:<ticker>/events (To be determined - TBD)
+```
+
+## 引用不可变数据
+
+要存储不可变的（非数字对象数据），使用 "dat" 命令（store-file）并使用以下形式的 _dat_ URN 引用它：
+
+```plain showLineNumbers
+atom:btc:dat:<data_id>/image.png
+```
+
+:::tip
+请注意，`dat` 不可变数据存储可以使用 $ 或 /，因为不可变数据只有一个版本，两者都会返回相同的数据。
+:::

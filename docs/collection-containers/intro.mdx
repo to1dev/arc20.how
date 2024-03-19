@@ -1,0 +1,282 @@
+---
+sidebar_position: 1
+---
+
+# 简介
+
+代币和数据容器集合概述
+
+本节介绍了如何铸造一种特殊的 Atomical 数字对象，称为容器（_Container_）。容器用于 NFT 集合等应用场景，它们允许将多个项目组织到一个统一的集合中。
+
+import Admonition from '@theme/Admonition';
+
+<Admonition type="info" icon="" title="➡️ 快速概述：什么是容器？">
+容器是一种用来标识 NFT 集合和元数据的人类可读标识符，其名称以井号(#)为前缀。容器名称通过 Atomicals 数字对象格式，在比特币区块链上实现自我拥有和自我管理。在容器集合内，可以添加和更新项目，还可以选择将容器永久封存以防止将来进行任何更改。
+</Admonition>
+
+:::tip
+
+📌 **若需使用去中心化铸造（DMINT）来铸造容器项目，请参考 [DMINT 指南](./dmint-guide)。**
+
+:::
+
+## 容器集合格式（推荐）
+
+为了提高效率，属性定义与项目属性是分开进行的。每个项目的属性通过一个标识符与其对应的属性定义相关联或连接。详细示例可以参考 [GitHub 中的集合格式示例](https://github.com/atomicals/atomicals-js/blob/master/templates/containers/dmint-collection-general-metadata.json)。
+
+### name 名称（字符串 - 可选）
+
+_name_ 字段用于定义集合的展示名称。集合容器本身以井号(#)作为标识（例如：`#mycollection-name`），而此名称字段则提供了一个用于网站展示的、更具描述性的名称。
+
+### desc 描述（字符串 - 可选）
+
+_desc_ 字段用于提供集合的详细描述。
+
+### legal 法律法规（对象 - 推荐）
+
+_legal_ 部分规定了相关的法律条款和许可信息，阐明了 NFT 的用户和持有者可以如何利用其中的数据。
+
+**条款（推荐）**：指定集合或单个项目使用的具体条件。
+
+**许可（推荐）**：列出适用的许可类型。
+
+```json showLineNumbers
+"legal": {
+    "terms": "...",
+    "license": "CC",
+}
+```
+
+### links 链接（可选）
+
+_links_ 部分用于指定与集合相关的外部资源链接，比如网站和社交媒体页面等。
+
+```json showLineNumbers
+{
+    "links": {
+        "x": {
+            "v": "https://x.com/username"
+        },
+        "website": {
+            "v": "https://coolwebsite.com"
+        },
+        "discord": {
+            "v": "https://discord.gg/..."
+        }
+    }
+}
+```
+
+### attrs 属性（对象 - 可选）
+
+_attrs_ 部分用于定义属性的类型及其详细信息，包括属性的名称、描述和可能的取值范围。
+
+### items 项目（对象 - 必需）
+
+在项目部分，通过键到项目的映射关系将所有 NFT 与容器关联起来。即便采用了编号方案，仍建议使用项目键的字符串表示形式。
+
+**id（必需）**：表示项目的“id”，对应于 NFT 的 atomical ID。
+
+**a（必需）**：表示项目的“属性”。此字段必须是一个数组，其中的每个元素对应于属性定义部分 _attrs_ 中的一个属性值。
+
+**n（可选）**：表示项目的“名称”。
+
+```json showLineNumbers
+{
+  "name": "Collection Name",
+  "desc": "Collection description",
+  "image": "atom:btc:dat:<location of store-file data>/image.png",
+  "legal": {
+    "terms": "...",
+    "license": "CC"
+  },
+  "links": {
+        "x": {
+            "v": "https://x.com/..."
+        },
+        "website": {
+            "v": "https://..."
+        },
+        "discord": {
+            "v": "https://discord.gg/..."
+        }
+  },
+  "attrs": [
+    {
+      "name": "bodyarmor",
+      "desc": "Type of body armor",
+      "type": "string",
+      "values": [
+        "metal",
+        "leather",
+        "field"
+      ]
+    },
+    {
+      "name": "headcovering",
+      "desc": "The type of head covering",
+      "type": "string",
+      "values": [
+        "bandana",
+        "helmet",
+        "scarf",
+        "baseball cap"
+      ]
+    },
+    {
+      "name": "stamina",
+      "desc": "The stamina of the hero",
+      "type": "integer",
+      "min": 0,
+      "max": 10
+    }
+  ],
+  "items": {
+    "0": {
+      "id": "84718b469c40b1bcc7cb324b8e24e4e442f88cd913687ea2bc7b3e79d4fc4fdei0",
+      "n": "Some Name",
+      "a": [
+        0,
+        3,
+        8
+      ]
+    },
+    "1": {
+      "id": "1070d7c98304bf5ac9a5addceb13e0ce4e840641f82d71d84cebbdac427c1f4fi0",
+      "n": "Another Name",
+      "a": [
+        1,
+        2,
+        10
+      ]
+    },
+    "Signature Series 1": {
+      "id": "14a0d7c98304bf5ac9a5addceb1de0ce4e840641f82d71d84cebbdac427c1fc3i0",
+      "n": "Special",
+      "a": [
+        2,
+        3,
+        7
+      ]
+    }
+  }
+}
+```
+
+整理好您的集合数据，确保它符合上述格式后，执行以下命令。
+
+```bash showLineNumbers
+// first store the desired main image on chain (see section below)
+# highlight-next-line
+npm run cli store-file ./path/to/image.png image.png --satsbyte=10
+
+Success sent tx:  db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f
+{
+  "success": true,
+  "data": {
+    "commitTxid": "b57bad8c0b7f58a552574fafc16b6efbbb3bf966b9ccfb24f03580f9462b5997",
+    "revealTxid": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f",
+    "dataId": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0"
+  }
+}
+
+// We will use the dataId above to reference the data on chain
+// ie: atom:btc:dat:db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0/image.png
+
+// Store the collection metadata with the following command:
+npm run cli set-container-data #mycollection-name collection.json --satsbyte=10
+```
+
+### 推荐的最简集合格式
+
+对于一个没有属性且元数据较少的集合，以下是建议的最基本格式。您只需提供一个名称、一张图片和项目列表即可。
+
+```json showLineNumbers
+{
+  "name": "Collection Name",
+  "image": "atom:btc:dat:<location of store-file data>/image.png",
+  "items": {
+    "0": {
+      "id": "84718b469c40b1bcc7cb324b8e24e4e442f88cd913687ea2bc7b3e79d4fc4fdei0"
+    },
+    "1": {
+      "id": "1070d7c98304bf5ac9a5addceb13e0ce4e840641f82d71d84cebbdac427c1f4fi0"
+    },
+    "9999": {
+      "id": "14a0d7c98304bf5ac9a5addceb1de0ce4e840641f82d71d84cebbdac427c1fc3i0"
+    }
+  }
+}
+```
+
+将您的集合数据按照上述格式整理好之后，接下来可以执行以下命令。
+
+```bash showLineNumbers
+// first store the desired main image on chain (see section below)
+# highlight-next-line
+npm run cli store-file ./path/to/image.png image.png --satsbyte=10
+
+Success sent tx:  db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f
+{
+  "success": true,
+  "data": {
+    "commitTxid": "b57bad8c0b7f58a552574fafc16b6efbbb3bf966b9ccfb24f03580f9462b5997",
+    "revealTxid": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f",
+    "dataId": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0"
+  }
+}
+
+// We will use the dataId above to reference the data on chain
+// ie: atom:btc:dat:db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0/image.png
+
+// Store the collection metadata with the following command:
+npm run cli set-container-data #mycollection-name collection.json --satsbyte=10
+```
+
+## 链上存储不可变图像文件
+
+:::tip
+
+[永久文件存储](../permanent-file-storage)
+
+:::
+
+通过命令行工具，按照上述示例文件中的数据格式，执行以下命令来配置您的数据。
+
+```bash showLineNumbers
+// immutably store an image on-chain to reference in the container metadata
+# highlight-next-line
+npm run cli store-file ./path/to/image.png image.png --satsbyte=10
+
+Success sent tx:  db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f
+{
+  "success": true,
+  "data": {
+    "commitTxid": "b57bad8c0b7f58a552574fafc16b6efbbb3bf966b9ccfb24f03580f9462b5997",
+    "revealTxid": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f",
+    "dataId": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0"
+  }
+}
+```
+
+我们将通过使用一个称为“揭示位置”的标识符（db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0）来引用图片 _image.png_。
+
+## 向集合容器添加 NFT
+
+根据上述集合格式准备一个文件，然后执行以下命令以更新示例集合 _#mycollection-name_。
+
+```bash showLineNumbers
+npm run cli set-container-data #mycollection-name sample-collection.json --satsbyte=10
+```
+
+## 查询集合容器的元数据和项目
+
+在交易在区块中得到确认之后，您可以通过执行以下命令来查询示例集合 _#mycollection-name_ 的当前状态：
+
+```bash showLineNumbers
+npm run cli state #mycollection-name
+```
+
+<Admonition type="tip" icon="" title="⚡开始铸造您的第一个 Atomical 数字对象">
+[下载并安装 Atomicals JavaScript 命令行工具](https://github.com/atomicals/atomicals-js)，并按照快速入门指南进行操作，在不到 2 分钟内铸造您的 NFT、集合或领域名称。
+</Admonition>

@@ -1,0 +1,67 @@
+---
+sidebar_position: 2
+---
+
+# 付款名称格式
+
+利用 Atomicals 领域协议，可以通过人类可读的付款名称来发送和接收加密货币。
+
+### 格式规范
+
+```plain showLineNumbers
++[inbox]@[realm_name]
+
+Where:
++ is always required at the front to denote it is a Realm user recipient
+
+inbox: The name of the inbox associated with the Realm payment name
+# highlight-next-line
+@ is required to indicate the inbox is located at the Realm
+
+realm_name: The fully qualified Realm or Subrealm name
+```
+
+**示例**
+
+```plain showLineNumbers
++hello@samplerealm
++main@samplerealm
++support@samplerealm
+```
+
+**注意**：`inbox` 可以用作接收加密货币或支付方式的数据载体，也可以被设置为委托给另一个 NFT 以处理数据的更新。
+
+## 链上数据对象格式
+
+要深入了解如何为领域存储数据，请参照下面提供的领域/NFT数据格式布局指南。
+
+```json showLineNumbers
+{
+  "paynames": {
+    "delegate": "atom:btc:id:<atomical_id>/paynames",
+    "hello": {
+      "delegate": "atom:btc:id:<atomical_id>/paynames/hello"
+    },
+    "main": {
+      "types": {
+         "btc": {
+           "value": "bitcoin btc address"
+         },
+         "ltc": {
+           "value": "litecoin ltc address",
+           "notes": "optional notes",
+           "instructions": "optional instructions"
+         }
+      }
+    }
+  }
+}
+```
+
+### 字段
+
+**_paynames_**：这是一个顶级字段，用于存储领域的 `payname` 配置及其设置数据，其中可能包含其他键来标识收件箱。只有字符集 `/a-z0-9/` 被认为是有效的。名称的最大长度为64个字符。
+
+**_types_**：表示各种可接受的加密货币和支付方式的代币代码。
+
+**_delegate_**：可以将领域的所有支付名称委托给一个 NFT，或者仅委托给一个特定的收件箱（例如这里的 `hello`，即 `+hello@samplerealm`）。当 `delegate` 字段位于 `paynames` 正下方时，将被优先考虑，其他数据将被忽略，因为整个 `paynames` 配置已被委托到另一个位置。

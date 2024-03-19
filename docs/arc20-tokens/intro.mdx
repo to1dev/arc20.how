@@ -3,3 +3,153 @@ sidebar_position: 1
 ---
 
 # 简介
+
+## 什么是 ARC20 代币
+
+比特币的最小货币单位“聪”作为价值锚定基础，催生了一种同质化染色币标准，其中每个代币等价于1聪（即比特币的亿分之一，或0.00000001 BTC）。
+
+Atomicals 协议提供了一种在比特币区块链上表示同质化代币资产的有效方法。借助 ARC-20 同质化代币标准，染色币技术得以应用于比特币生态，其中每个代币单位都由一个聪代表，从而确立了代币所有权的度量单位。因此，每个代币单位的价值至少等同于1聪，为代币价值提供了“数字含金量”。这保证了按照定义，每个代币的价值不会低于1聪。
+
+ARC-20 利用比特币的原生聪单位来代表每个代币，允许这些代币像普通比特币那样进行分割和组合。任何人都可以铸造 ARC-20 代币，并将其转移至任何比特币地址，适用于支持 UTXO 选择的钱包，例如 [Sparrow钱包](https://www.sparrowwallet.com/)。代币的发行方式包括直接发行和去中心化发行。下面将介绍有关发行 ARC-20 的不同方法及其优势。
+
+ARC-20 还包含了代币名称服务，为每个代币提供了全球唯一的命名系统。代币名称一旦注册便是永久且独一无二的，遵循先到先得的原则，不能重复注册。（注：这与纽约证券交易所或纳斯达克的股票代码注册类似）
+
+## 去中心化铸造
+
+去中心化铸造的过程涉及设置代币名称、单次铸造的数量、总铸造次数上限、起始区块高度以及元数据。例如，发行者可以采用代币代码 `$myticker123` 来启动铸造流程，设定每次铸造数量为 `1,000` 单位（注意：单位可视为聪，因ARC20 标准规定一代币等于一聪），设定总铸造次数为 `10,000` 次，并从 `810,000` 区块高度开始铸造，同时包含 `image.jpg` 以及描述、链接、条款等元数据。
+
+### 初始化（init-dft）
+
+去中心化初始化的过程可以通过使用 [Atomicals 命令行工具](../reference-tools/javascript-library-cli) 来完成，其基本使用格式如下：
+
+```bash showLineNumbers
+# highlight-next-line
+npm run cli init-dft <tick> <per_mint_amt> <mint_count>
+<start_height> metadata.json
+
+Optional flags:
+--mintbitworkc=<prefix>
+--satsbyte=<number>
+```
+
+_**<span className="red">请参阅下方 metadata.json 的格式</span>**_
+
+去中心化初始化函数 `init-dft` 允许你使用 `mint-dft` 命令（将在下文中详细介绍）从指定的起始区块高度 `start_height` 开始铸造代币名称 `tick`，并设定最多 `mint_count` 次铸造请求。每次成功铸造，将向铸造者奖励 `per_mint_amt` 单位的代币。因此，代币的最大总供应量将是 `per_mint_amt * mint_count`。
+
+_注意_：在代币名称 `tick` 被成功申领之前，需要等待 3 个区块的确认时间。你可以通过运行 `npm run cli get <atomicalID>` 或 `npm run cli find-tickers` 来查询状态。
+
+**必需参数：**
+
+- _tick_：全球唯一的代币名称。
+- _per_mint_amt_：每次成功铸造所奖励的代币单位数，实际上等同于比特币的聪数量。
+- _mint_count_：在达到“完全铸造”状态之前允许的最大铸造次数。
+- _start_height_：可以开始铸造的起始区块高度，可以设置为 0 或任何未来的区块高度（注：设置为 0 意味着代币铸造将从当前区块立即生效）。
+- _image_：代表代币的图标，文件名将被包含在代币元数据中。确保正确命名文件，可以使用 `image.jpg` 或 `image.png` 格式。
+
+**可选参数：**
+
+- `--mintbitworkc=<prefix>`：定义铸造时可选的 [Bitwork](../bitwork-mining) 挖矿难度前缀。设置后，铸造者需通过计算找到一个匹配该前缀的哈希值才能成功铸造，类似于执行比特币的工作量证明过程。建议选择4到6位的十六进制前缀。前缀中的字符可以是 `a-f` 和 `0-9` 范围内的任何有效十六进制数字，选择哪个字符完全取决于个人偏好。
+
+铸造难度示例估计（基于慢速CPU，实际性能可能因硬件而异）：
+  - 3位十六进制前缀（如"777"）可能需要大约4秒。
+  - 4位十六进制前缀（如"7777"）可能需要约1分钟。
+  - 5位十六进制前缀（如"77777"）可能需要约16分钟。
+  - 6位十六进制前缀（如"777777"）可能需要约256分钟。
+
+- `--satsbyte=<number>`：设定交易中每字节所需的矿工费聪数，用以覆盖默认值。（注：有关具体数值，建议参考实时交易费用数据，如[mempool.space](https://mempool.space/)所提供的信息）。
+
+### 铸造（mint-dft）
+
+使用 [Atomicals 命令行工具](../reference-tools/javascript-library-cli) 进行去中心化铸造的基本格式如下：
+
+```bash showLineNumbers
+npm run cli mint-dft <tick>
+
+Optional flags:
+--satsbyte=<number>
+```
+
+去中心化铸造功能 `mint-dft` 使您能够从指定的区块高度 `start_height` 开始，铸造名为 `tick` 的代币。
+
+遵循屏幕上的指引进行铸造操作。
+
+**必需参数：**
+
+- _tick_：代币的全球唯一名称。
+
+**可选参数：**
+
+- `--satsbyte=<number>`：设定交易中每个字节所需支付的矿工费用（单位为聪），此参数将覆盖默认值。请注意，这涉及到交易费用的设置，具体数值可参照实时交易费用数据，如 [mempool.space](https://mempool.space/) 提供的信息。
+
+## 直接铸造
+
+铸造或发行 ARC-20 代币的另一种方法是直接创建一个单一输出，该输出包含了总供应量，其中每个聪代表了代币的一个单位。
+
+### 一次性铸造总供应量
+
+```bash showLineNumbers
+npm run cli mint-ft <tick> <total_supply> metadata.json
+
+Optional flags:
+--satsbyte=<number>
+```
+
+_**<span className="red">请参见下方 metadata.json 的格式</span>**_
+
+铸造或发行 ARC-20 代币的另一种方法是直接生成一个单一输出，该输出具体包含了代币的总供应量，其中每个聪代表代币的一个单位。
+
+举个例子，若想铸造总供应量为1亿单位的代币，您只需要创建一个含有正好1个比特币（1 BTC = 1亿聪）的单一输出即可。直接铸造方式的一个优点在于，发行方需要实际投入相应数量的比特币以证明总供应量，这极大降低了潜在不诚实行为者无成本制造代币的可能性。
+
+直接铸造 ARC-20 代币非常适合那些希望控制初始分配，并计划在将来某个时刻确定如何分配这些代币的团队或公司。
+
+_注意_：在代币名称 `tick` 被成功申领前，需要等待 3 个区块的确认时间。您可以通过运行 `npm run cli get <atomicalID>` 或 `npm run cli find-tickers` 来查询状态。
+
+**必需参数：**
+
+- _tick_：代币的全球唯一名称。
+- _total_supply_：直接铸造的总供应量。
+- _image_：代表代币的图像。请先对文件进行重命名，并确保其以 `image.jpg` 或 `image.png` 的格式被包含。
+
+**可选参数：**
+
+- `--satsbyte=<number>`：设定交易中每个字节所需支付的矿工费用（单位为聪），此参数将覆盖默认值。实际费率可参照实时交易费用数据，如 [mempool.space](https://mempool.space/) 提供的信息。
+
+## Metadata.json 格式
+
+**设定代币的元数据细节**。建议您按照 `sample-ft-meta.json` 提供的示例格式来构建。
+
+利用[永久文件存储](../permanent-file-storage)功能，您可以将图像等资料直接存储于区块链上，并在下述的 `image` 字段中进行引用。
+
+```json showLineNumbers
+{
+    "name": "",
+    "desc": "",
+    "image": "atom:btc:dat:<location of store-file data>/image.png",
+    "decimals": 0,
+    "links": {
+        "x": {
+            "v": "https://x.com/..."
+        },
+        "website": {
+            "v": "https://..."
+        },
+        "realm": {
+            "v": "atom:btc:realm:myrealmname.subrealm"
+        },
+        "discord": {
+            "v": "https://discord.gg/..."
+        }
+    },
+    "legal": {
+        "terms": ""
+    }
+}
+```
+
+元数据中的字段并非强制性的，可以是任何结构和格式，只需确保是有效的 JSON 对象即可。然而，为了向用户清晰说明使用细节，建议至少包含名称、描述和法律信息等字段。务必寻求法律咨询，并确认您所在的司法管辖区是否允许您的预定用途。
+
+import Admonition from '@theme/Admonition';
+
+<Admonition type="tip" icon="" title="⚡开始铸造您的第一个 Atomical 数字对象">
+[下载并安装 Atomicals JavaScript 命令行工具](https://github.com/atomicals/atomicals-js)，并按照快速入门指南进行操作，在不到 2 分钟内铸造您的 NFT、集合或领域名称。
+</Admonition>

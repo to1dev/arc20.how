@@ -2,6 +2,7 @@
   "label": "ARC20 代币",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "本章将介绍什么是ARC20染色币，包括它们的发行、铸造和转移过程。"
   }
 }

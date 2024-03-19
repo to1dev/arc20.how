@@ -1,0 +1,47 @@
+---
+sidebar_position: 2
+---
+
+# ElectrumX API 和公共节点
+
+了解去中心化 Atomicals ElectrumX 索引服务
+
+:::info
+
+想了解更多内容，请查看 [Atomicals ElectrumX API 源码仓库](https://github.com/atomicals/atomicals-electrumx)
+
+:::
+
+## 公共节点
+
+以下是社区运维的支持 Atomicals 协议的 ElectrumX 索引服务的列表。如果您想将您的节点加入此列表，请通过 [@atomicalsxyz](https://x.com/atomicalsxyz) 与我们取得联系。
+
+<Highlight color="#1877F2">免责声明</Highlight>：此处提供的链接无法保证一定有效，且列表中的任何服务均不代表我们对其服务、产品、项目或公司的正式认可。
+
+### ElectrumX HTTP 代理（比特币主网）
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+| 服务器网址    | 备注    |
+|--------|--------|
+| https://ep.atomicals.xyz | 使用示例：<br />https://ep.atomicals.xyz/proxy/blockchain.atomicals.get_global?pretty<br />https://ep.atomicals.xyz/proxy/blockchain.atomicals.get?params=[%2210000%22]&pretty |
+| https://ep.atomicalmarket.com | 使用示例：<br />https://ep.atomicalmarket.com/proxy/blockchain.transaction.get?params=[%229760d0a2313d9bcf951d6a1da5dddd33114325c2303cc759e6c197b8ec77fd26%22,%201]&pretty |
+| https://ep.nextdao.xyz | 使用示例：<br />https://ep.nextdao.xyz/proxy/blockchain.atomicals.get?pretty&params=[%2263737%22]&pretty |
+| https://ep.atomicalneutron.com/proxy | 使用示例：<br />https://ep.atomicalneutron.com/proxy/blockchain.atomicals.get?pretty&params=[%2263737%22]&pretty |
+| https://ep.anynodes.org/proxy | 使用示例：<br />https://ep.anynodes.org/proxy/blockchain.atomicals.get?pretty&params=[%2263737%22]&pretty |
+
+### ElectrumX HTTP 代理（比特币测试网）
+
+| 服务器网址    | 备注    |
+|--------|--------|
+|https://eptestnet.atomicals.xyz|使用示例：<br />https://eptestnet.atomicals.xyz/proxy/blockchain.atomicals.get_global<br />https://ep.atomicals.xyz/proxy/blockchain.atomicals.get?params=[%221%22]&pretty|

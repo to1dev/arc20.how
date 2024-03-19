@@ -1,0 +1,8 @@
+{
+  "label": "领域名称",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "本章将介绍领域的概念，包括如何铸造领域及其子领域，并讨论它们可能的应用场景。"
+  }
+}

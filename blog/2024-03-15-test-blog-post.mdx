@@ -1,0 +1,50 @@
+---
+slug: the-first-blog-post
+title: 测试博客文章
+authors: [to1dev]
+tags: [mdx, blog, post]
+---
+
+这是一篇博客的测试文章。
+
+:::tip
+
+使用 React 的强大功能来创建交互式博客文章。
+
+```jsx showLineNumbers
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '20px',
+      color: '#fff',
+      padding: '10px',
+      cursor: 'pointer',
+    }}
+    onClick={() => {
+      alert(`${children}`)
+    }}>
+    {children}
+  </span>
+);
+```
+
+<Highlight color="#25c2a0">点击</Highlight>
+
+:::
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '3px',
+      color: '#fff',
+      padding: '10px',
+      cursor: 'pointer',
+    }}
+    onClick={() => {
+      alert(`${children}`)
+    }}>
+    {children}
+  </span>
+);

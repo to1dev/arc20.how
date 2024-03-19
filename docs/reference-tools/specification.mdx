@@ -3,3 +3,74 @@ sidebar_position: 1
 ---
 
 # 规范
+
+Atomicals 协议的详细文档
+
+:::info
+
+Atomicals 协议建立在一系列简明的核心规则之上，这些规则涵盖了铸造、转移、更新、删除以及提取操作。在掌握了相关理论知识之后，您将能够迅速着手铸造您的首个 Atomical 数字对象，仅需几分钟即可完成。
+
+:::
+
+:::warning
+
+规范直接在代码中进行了定义。您可以通过查看 [atomicals-js 命令行工具](https://github.com/atomicals/atomicals-js/tree/master/lib/commands) 中的命令来详细了解其功能。
+
+:::
+
+## 信封
+
+所有方法均采用了基于 Taproot（P2TR）的“提交-揭示”方案来利用消费路径脚本。在输入的见证脚本部分，我们置入了一个 Atomicals 信封，里面包含了可合法执行的各类操作。
+
+我们通过使用 `OP_FALSE OP_IF ... OP_ENDIF` 结构在见证消费脚本中嵌入任意非可执行内容的约定。此外，我们使用“atom”（其十六进制表示为 `61746F6D` ）的字节标记来指示该信封属于 Atomicals 协议。
+
+```plain showLineNumbers
+OP_FALSE
+OP_IF
+ 0x0461746F6D // Push "atom" 4 bytes
+ <Operation>  // Followed by a single push to denote the operation type
+ <Payload>    // Payload (CBOR encoded) for the operation
+OP_ENDIF
+```
+
+信封可以插入到消费脚本的任意位置，但我们建议将其置于公钥哈希支付（P2PKH）之后，实践中应遵循这一指导原则：
+
+```plain showLineNumbers
+<pubkey-hash>
+OP_CHECKSIG   // Perform a check signature against the pubkey-hash
+OP_FALSE
+OP_IF
+ 0x0461746F6D // Push "atom" 4 bytes
+ <Operation>  // Followed by a single push to denote the operation type
+ <Payload>    // Payload (CBOR encoded) for the operation
+OP_ENDIF
+```
+
+`<Operation>` 字段采用单个推送数据的格式，用于表示接下来的操作类型，而 `<Payload>` 数据则根据操作类型的上下文进行解释。`<Payload>` 是采用CBOR（一种简洁高效的数据编码方式）编码的数据结构，易于在多种编程语言中解码。CBOR的表达性和简洁性大幅度简化了解析 Atomicals 协议操作的流程，因为只需推送包含所有必要文件及其元数据的数据即可。
+
+## 载荷格式描述
+
+载荷格式设计直观而简洁：每个顶级字段均代表一个文件（或字段）名称，其下可以包含任意有效的类 JSON 结构。如果载荷中包含“ct”（内容类型）字段，则将其解释为特定类型的文件，其字节数据存放于“d”字段中。
+
+载荷采用 CBOR 编码，每个推送数据的大小最多为 520 字节。对于超出此大小的载荷，会分割成多个 520 字节的数据块进行推送。解析器将所有这些数据块串联起来，再进行 CBOR 解码以重建完整的数据结构。
+
+如果在任何时刻载荷不符合 CBOR 编码规范，则默认该 NFT 不含关联数据。载荷字段的缺失是允许的，但这也意味着没有任何数据。一些数字对象可能在其铸造时并不包含明确的载荷数据。
+
+需要注意的是，仅当字段下同时存在“ct”（内容类型）和“d”（数据）子键时，该字段才被视为包含文件数据。如果未提供“d”字段，则相应的字段被认为是非文件类型的元数据字段。
+
+### 载荷格式示例
+
+```json showLineNumbers
+{
+    "someimage.png": "binary data",
+    "meta": {
+        "some": "value",
+        "another: {
+        "fieldabc": 123
+        }
+    },
+    "args": {
+        "r": "abc"
+    }
+}
+```
