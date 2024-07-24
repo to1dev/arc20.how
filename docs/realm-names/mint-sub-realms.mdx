@@ -19,7 +19,7 @@ sidebar_position: 3
 
 ### 第一步：创建初始子领域铸造规则文件
 
-有关规则文件格式的详细信息，请参考[规则指南](../rules-subrealms-and-dmint)。接下来，我们将通过配置示例规则来展示如何为示例领域 `+mycoolrealm` 设置规则。
+有关规则文件格式的详细信息，请参考[规则指南](../rules-subrealms-and-dmint.mdx)。接下来，我们将通过配置示例规则来展示如何为示例领域 `+mycoolrealm` 设置规则。
 
 该示例领域 `+mycoolrealm` 位于测试网络上，其 `atomical_id` 为 `285051d51bb9d045d24dc0816d6f29bfe72b1c91e479702ec866c724a0f4aa56i0`。
 
@@ -46,7 +46,7 @@ sidebar_position: 3
 }
 ```
 
-上述规则文件使得任何人都可以免费铸造长度在 6 到 64 个字符之间的子领域，前提是用户通过使用 `"bitworkc": "8888.8"` 的[Bitwork](../bitwork-mining)（大约需要 1-2 分钟的CPU时间）来铸造子领域。此外，还有第二条规则，允许用户铸造长度少于 6 个字符的子领域，条件是向地址 `bc1pa5hvv3w3wjwfktd63zcng6yeccxg9aa90e34n9jrjw3thgc52reqxw6has` 支付 10,000 聪（这里的 `5120ed2ec645d1749c9b2dba88b1346899c60c82f7a57e6359964393a2bba31450f2` 是输出脚本的十六进制格式）。
+上述规则文件使得任何人都可以免费铸造长度在 6 到 64 个字符之间的子领域，前提是用户通过使用 `"bitworkc": "8888.8"` 的[Bitwork](../bitwork-mining.mdx)（大约需要 1-2 分钟的CPU时间）来铸造子领域。此外，还有第二条规则，允许用户铸造长度少于 6 个字符的子领域，条件是向地址 `bc1pa5hvv3w3wjwfktd63zcng6yeccxg9aa90e34n9jrjw3thgc52reqxw6has` 支付 10,000 聪（这里的 `5120ed2ec645d1749c9b2dba88b1346899c60c82f7a57e6359964393a2bba31450f2` 是输出脚本的十六进制格式）。
 
 这个地址是通过以下命令从输出脚本转换得到的。
 
@@ -54,7 +54,7 @@ sidebar_position: 3
 yarn run cli script-address 5120ed2ec645d1749c9b2dba88b1346899c60c82f7a57e6359964393a2bba31450f2
 ```
 
-记住，您可以借助命令行工具来在输出脚本的十六进制格式和地址之间进行转换。更多详细信息，请参考[规则指南](../rules-subrealms-and-dmint)。
+记住，您可以借助命令行工具来在输出脚本的十六进制格式和地址之间进行转换。更多详细信息，请参考[规则指南](../rules-subrealms-and-dmint.mdx)。
 
 ### 第二步：为您的领域启用 “enable-subrealms” 铸造规则
 

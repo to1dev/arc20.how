@@ -20,7 +20,7 @@ ARC-20 还包含了代币名称服务，为每个代币提供了全球唯一的�
 
 ### 初始化（init-dft）
 
-去中心化初始化的过程可以通过使用 [Atomicals 命令行工具](../reference-tools/javascript-library-cli) 来完成，其基本使用格式如下：
+去中心化初始化的过程可以通过使用 [Atomicals 命令行工具](../reference-tools/javascript-library-cli.mdx) 来完成，其基本使用格式如下：
 
 ```bash showLineNumbers
 # highlight-next-line
@@ -48,7 +48,7 @@ _注意_：在代币名称 `tick` 被成功申领之前，需要等待 3 个区�
 
 **可选参数：**
 
-- `--mintbitworkc=<prefix>`：定义铸造时可选的 [Bitwork](../bitwork-mining) 挖矿难度前缀。设置后，铸造者需通过计算找到一个匹配该前缀的哈希值才能成功铸造，类似于执行比特币的工作量证明过程。建议选择4到6位的十六进制前缀。前缀中的字符可以是 `a-f` 和 `0-9` 范围内的任何有效十六进制数字，选择哪个字符完全取决于个人偏好。
+- `--mintbitworkc=<prefix>`：定义铸造时可选的 [Bitwork](../bitwork-mining.mdx) 挖矿难度前缀。设置后，铸造者需通过计算找到一个匹配该前缀的哈希值才能成功铸造，类似于执行比特币的工作量证明过程。建议选择4到6位的十六进制前缀。前缀中的字符可以是 `a-f` 和 `0-9` 范围内的任何有效十六进制数字，选择哪个字符完全取决于个人偏好。
 
 铸造难度示例估计（基于慢速CPU，实际性能可能因硬件而异）：
   - 3位十六进制前缀（如"777"）可能需要大约4秒。
@@ -60,7 +60,7 @@ _注意_：在代币名称 `tick` 被成功申领之前，需要等待 3 个区�
 
 ### 铸造（mint-dft）
 
-使用 [Atomicals 命令行工具](../reference-tools/javascript-library-cli) 进行去中心化铸造的基本格式如下：
+使用 [Atomicals 命令行工具](../reference-tools/javascript-library-cli.mdx) 进行去中心化铸造的基本格式如下：
 
 ```bash showLineNumbers
 npm run cli mint-dft <tick>
@@ -118,7 +118,7 @@ _注意_：在代币名称 `tick` 被成功申领前，需要等待 3 个区块�
 
 **设定代币的元数据细节**。建议您按照 `sample-ft-meta.json` 提供的示例格式来构建。
 
-利用[永久文件存储](../permanent-file-storage)功能，您可以将图像等资料直接存储于区块链上，并在下述的 `image` 字段中进行引用。
+利用[永久文件存储](../permanent-file-storage.mdx)功能，您可以将图像等资料直接存储于区块链上，并在下述的 `image` 字段中进行引用。
 
 ```json showLineNumbers
 {
