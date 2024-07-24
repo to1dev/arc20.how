@@ -4,45 +4,45 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import { themes as prismThemes } from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 //import remarkMath from 'remark-math';
 //import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: '原子协议',
-    tagline: '开启比特币新纪元',
-    favicon: 'img/atom.svg',
+    title: "原子协议",
+    tagline: "开启比特币新纪元",
+    favicon: "img/atom.svg",
 
     // Set the production url of your site here
-    url: 'https://arc20.how',
+    url: "https://arc20.how",
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
-    baseUrl: '/',
+    baseUrl: "/",
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    organizationName: "facebook", // Usually your GitHub org/user name.
+    projectName: "docusaurus", // Usually your repo name.
 
-    onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'warn',
+    onBrokenLinks: "throw",
+    onBrokenMarkdownLinks: "warn",
 
     // Even if you don't use internationalization, you can use this field to set
     // useful metadata like html lang. For example, if your site is Chinese, you
     // may want to replace "en" with "zh-Hans".
     i18n: {
-        defaultLocale: 'zh-Hans',
-        locales: ['en', 'zh-Hans'],
+        defaultLocale: "zh-Hans",
+        locales: ["en", "zh-Hans"],
     },
 
     presets: [
         [
-            'classic',
+            "classic",
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
-                    sidebarPath: './sidebars.js',
+                    sidebarPath: "./sidebars.js",
                     //remarkPlugins: [remarkMath],
                     //rehypePlugins: [rehypeKatex],
                     // Please change this to your repo.
@@ -58,7 +58,7 @@ const config = {
                     //'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
                 },
                 theme: {
-                    customCss: './src/css/custom.css',
+                    customCss: "./src/css/custom.css",
                 },
             }),
         ],
@@ -68,81 +68,81 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             // Replace with your project's social card
-            image: 'img/arc20-social-card.png',
+            image: "img/arc20-social-card.png",
             navbar: {
-                title: '原子协议',
+                title: "原子协议",
                 logo: {
-                    alt: 'My Site Logo',
-                    src: 'img/atom.svg',
+                    alt: "My Site Logo",
+                    src: "img/atom.svg",
                 },
                 items: [
                     {
-                        type: 'docSidebar',
-                        sidebarId: 'tutorialSidebar',
-                        position: 'left',
-                        label: '指南',
+                        type: "docSidebar",
+                        sidebarId: "tutorialSidebar",
+                        position: "left",
+                        label: "指南",
                     },
-                    { to: '/blog', label: '博客', position: 'left' },
+                    { to: "/blog", label: "博客", position: "left" },
                     {
-                        href: 'https://github.com/to1dev/arc20.how',
-                        label: '贡献',
-                        position: 'right',
+                        href: "https://github.com/to1dev/arc20.how",
+                        label: "贡献",
+                        position: "right",
                     },
                 ],
             },
             footer: {
-                style: 'dark',
+                style: "dark",
                 links: [
                     {
-                        title: '文档',
+                        title: "文档",
                         items: [
                             {
-                                label: '指南',
-                                to: '/docs/guidebook',
+                                label: "指南",
+                                to: "/docs/guidebook",
                             },
                         ],
                     },
                     {
-                        title: '社区',
+                        title: "社区",
                         items: [
                             {
-                                label: '推特',
-                                href: 'https://x.com/atomicalsxyz',
+                                label: "推特",
+                                href: "https://x.com/atomicalsxyz",
                             },
                             {
-                                label: '电报群',
-                                href: 'https://t.me/AtomicalsProtocol',
+                                label: "电报群",
+                                href: "https://t.me/AtomicalsProtocol",
                             },
                             {
-                                label: 'Discord',
-                                href: '#',
+                                label: "ARC20ME",
+                                href: "https://arc20.me",
                             },
                         ],
                     },
                     {
-                        title: '链接',
+                        title: "链接",
                         items: [
                             {
-                                label: '协议',
-                                href: 'https://atomicals.xyz',
+                                label: "协议",
+                                href: "https://atomicals.xyz",
                             },
                             {
-                                label: '源码',
-                                href: 'https://github.com/atomicals',
+                                label: "源码",
+                                href: "https://github.com/atomicals",
                             },
                         ],
                     },
                 ],
-                copyright: `&copy; 2023-${new Date().getFullYear()} 协议遵循 MIT 和 GPLv3 许可证, 网站由ARC20社区维护`,
+                copyright: `&copy; 2023-${new Date().getFullYear()} 协议遵循 MIT 和 GPLv3 许可证, 网站由 <a href="https://arc20.me/to1dev" target="_blank">@to1dev</a> 制作, ARC20社区维护`,
             },
             prism: {
                 theme: prismThemes.dracula,
                 darkTheme: prismThemes.dracula,
-                additionalLanguages: ['powershell', 'bash', 'json'],
+                additionalLanguages: ["powershell", "bash", "json"],
             },
             colorMode: {
                 disableSwitch: true,
-                defaultMode: 'light',
+                defaultMode: "light",
             },
         }),
 
@@ -175,6 +175,5 @@ const config = {
         }*/
     ],
 };
-
 
 export default config;
