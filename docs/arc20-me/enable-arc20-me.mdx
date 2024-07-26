@@ -3,6 +3,7 @@ sidebar_position: 2
 ---
 
 import a1 from './img/a1.gif';
+import a2 from './img/a2.gif';
 import wizz_icon from './img/wizz.png';
 
 # 教程
@@ -35,28 +36,16 @@ import wizz_icon from './img/wizz.png';
 
 :::warning
 
-这里假定你已经安装好了 Wizz 钱包，并已创建或导入了你的比特币助记词。如果你还未安装，请先移步至谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
+这里假定你已经安装好了 Wizz 钱包，并已创建或导入了你的比特币助记词。如果你尚未安装，请先移步至谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
 
 :::
 
-下面，让我来演示如何一步步的铸造一个领域（Realm），这里我选择的是 Bureau 这个名称。
+下面，让我来演示如何一步步的铸造一个领域（Realm），这里我们将铸造 Bureau 这个名称。
 
-1. 点击谷歌浏览器右上方的 Wizz 钱包图标<img src={wizz_icon} width="32" />，弹出 Wizz 钱包主界面，然后点击 **Mint** 按钮。
+1. 点击谷歌浏览器右上方的 Wizz 钱包图标<img src={wizz_icon} width="32" />，在弹出的主界面上点击 **Mint** 按钮。
 
 <img src={a1} width="400" />
 
-```bash showLineNumbers
-// immutably store an image on-chain to reference in the container metadata
-# highlight-next-line
-npm run cli store-file ./path/to/image.png image.png --satsbyte=10
+2. 进入钱包自带的铸造页面时，先勾选 **I accept...** 按钮接受条款，然后点击 **I Understand** 按钮。
 
-Success sent tx:  db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f
-{
-  "success": true,
-  "data": {
-    "commitTxid": "b57bad8c0b7f58a552574fafc16b6efbbb3bf966b9ccfb24f03580f9462b5997",
-    "revealTxid": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f",
-    "dataId": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0"
-  }
-}
-```
+<img src={a2} width="400" />
