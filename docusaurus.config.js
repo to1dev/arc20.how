@@ -146,8 +146,6 @@ const config = {
             },
         }),
 
-    //plugins: [[require.resolve('docusaurus-lunr-search'), { languages: ['en', 'zh'] }]],
-
     /*stylesheets: [
         {
             href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
@@ -158,22 +156,7 @@ const config = {
         },
     ],*/
 
-    scripts: [
-        /*{
-            src: 'js/fonts.js',
-            async: true,
-            defer: true,
-            'data-some-attribute': 'some-value',
-        },*/
-        /*{
-            src: 'js/lunr.stemmer.support.js',
-            async: true,
-        },
-        {
-            src: 'js/lunr.zh.js',
-            async: true,
-        }*/
-    ],
+    scripts: [],
 };
 
 export default config;

@@ -1,0 +1,62 @@
+---
+sidebar_position: 2
+---
+
+import a1 from './img/a1.gif';
+import wizz_icon from './img/wizz.png';
+
+# 教程
+
+如何用 ARC20.ME 显示你的 Realm 资料
+
+:::info
+
+目前，ARC20.ME 还处于早期版本，尚未内置铸造 Realm 和制作 Realm 资料的功能。因此，我们将使用第三方工具来完成领域铸造和资料制作。
+
+:::
+
+接下来，我将详细讲解整个流程，只需按照以下步骤操作，即可完成一个 Realm 资料页面的创建。
+
+## 1. 铸造你的领域
+
+目前，铸造领域（Realm）主要有三种方法：
+
+- 协议官方的命令行工具（[Atomicals-js Cli](https://github.com/to1dev/atomicals-js)）
+- 钱包和交易市场提供的铸造工具（[Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)、[AtomicalMarket 市场](https://atomicalmarket.com/mint/realm)）
+- 提供领域铸造功能的第三方网站（[Realmbullrun](https://realmbullrun.com/mint-subrealm)）
+
+:::tip
+
+多数情况下我们会使用方法一和方法二来铸造领域，所以，这里重点讲解这两种方法。其中，第二种方法最为简单，也最适合新手，因此我们先讲解如何使用 Wizz 钱包铸造领域。
+
+:::
+
+### I. 使用 Wizz 钱包铸造领域
+
+:::warning
+
+这里假定你已经安装好了 Wizz 钱包，并已创建或导入了你的比特币助记词。如果你还未安装，请先移步至谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
+
+:::
+
+下面，让我来演示如何一步步的铸造一个领域（Realm），这里我选择的是 Bureau 这个名称。
+
+1. 点击谷歌浏览器右上方的 Wizz 钱包图标<img src={wizz_icon} width="32" />，弹出 Wizz 钱包主界面，然后点击 **Mint** 按钮。
+
+<img src={a1} width="400" />
+
+```bash showLineNumbers
+// immutably store an image on-chain to reference in the container metadata
+# highlight-next-line
+npm run cli store-file ./path/to/image.png image.png --satsbyte=10
+
+Success sent tx:  db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f
+{
+  "success": true,
+  "data": {
+    "commitTxid": "b57bad8c0b7f58a552574fafc16b6efbbb3bf966b9ccfb24f03580f9462b5997",
+    "revealTxid": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461f",
+    "dataId": "db8a761ed493627138c5733071558c4caa65912c5cba3e1061c02d6d7933461fi0"
+  }
+}
+```
