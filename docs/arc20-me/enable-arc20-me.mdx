@@ -37,7 +37,7 @@ import am_connect from './img/am-connect.png';
 
 :::
 
-### 1). 使用 Wizz 钱包铸造领域
+### 1). 使用 Wizz 钱包铸造
 
 :::warning
 
@@ -55,15 +55,15 @@ import am_connect from './img/am-connect.png';
 
 <img src={a2} width="400" />
 
-3. 在钱包的铸造页面，选择 **Realm** 页，然后勾选 **Realm** 选项，在输入框输入你要铸造的 Realm 名称，这里我们输入 bureau。
+3. 在钱包的铸造页面，选择 **Realm** 页，然后选中 **Realm** 选项，在输入框输入你要铸造的 Realm 名称，这里我们输入 bureau。
 
 <img src={a3} width="400" />
 
-4. 如果没有出现错误提示，表示当前名称有效，可以铸造。如果想使用其它地址接收铸造的 Realm，可以勾选 **Received By Other Address**，然后点击 **Mint Realm** 按钮，按照提示签名，即可完成铸造。
+4. 如果没有出现错误提示，表示当前名称有效，可以铸造。如果想使用其它地址接收铸造的 Realm，可以勾选 **Received By Other Address**，然后点击 **Mint Realm** 按钮，按照弹出的钱包提示签名，即可完成铸造。
 
 <img src={a4} width="400" />
 
-### 2). 使用 Atomical Market 市场铸造领域
+### 2). 使用 Atomical Market 市场铸造
 
 :::warning
 
@@ -71,7 +71,7 @@ import am_connect from './img/am-connect.png';
 
 :::
 
-1. 首先访问 [Atomical Market 的 Realm 铸造页面](https://atomicalmarket.com/mint/realm)，然后点击右上角 **Connect** 按钮。
+1. 首先访问 [Atomical Market](https://atomicalmarket.com/mint/realm) 的 Realm 铸造页面，然后点击右上角 **Connect** 按钮。
 
 <img src={am_connect} width="400" />
 
@@ -82,3 +82,26 @@ import am_connect from './img/am-connect.png';
 3. 钱包连接后，在 Realm 名称输入框中输入你要铸造的名称，这里我们输入 bureau，然后点击 **Next**，在弹出的确认框中点击 **Mint** 按钮。最后，按照弹出的钱包提示进行签名即可完成铸造。
 
 <img src={a6} width="400" />
+
+### 3). 使用协议官方命令行工具铸造
+
+:::tip
+
+命令行工具的使用需要熟悉控制台命令，知道怎么安装 node 和 npm 软件包，以及如何克隆 github 仓库。这里，假定你的系统已经安装了 git、node 及 npm 运行环境。在安装完成 npm 运行环境后，记得使用 ```corepack enable``` 来开启 **yarn** 命令。
+
+:::
+
+1. 克隆协议命令行源码仓库，安装所需依赖包，然后编译。
+
+```bash showLineNumbers
+git clone https://github.com/to1dev/atomicals-js.git
+cd atomicals-js
+yarn install
+yarn build
+```
+
+:::info
+
+这里选择克隆 [https://github.com/to1dev](https://github.com/to1dev/atomicals-js) 的协议命令行源码仓库，是由于索引服务器 1.5.1.0 的更新，导致 API 参数有所变化，官方源的命令行在铸造 Realm 时会出现错误，所以暂时选择 [https://github.com/to1dev](https://github.com/to1dev/atomicals-js) 的修正版。一旦我们提交的 PR 通过，将会换回官方源仓库。
+
+:::
