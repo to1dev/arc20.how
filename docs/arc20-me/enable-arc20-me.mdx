@@ -149,9 +149,9 @@ yarn cli mint-realm --initialowner=接收地址 --funding=付款地址私钥 --s
 
 ### 1). 制作领域资料
 
-领域资料本质上是一个 JSON 文件，（JSON 文件是一种用于存储和交换数据的纯文本文件，使用键值对和数组来表示数据结构）下面，我们根据协议官方推荐的格式来一步步制作一份领域资料。
+领域资料本质上是一个 JSON 文件（JSON 文件是一种用于存储和交换数据的纯文本文件，使用键值对和数组来表示数据结构）。所以，我们可以使用任何文本编辑器编辑领域资料。下面，我们根据协议官方推荐的格式来一步步制作一份领域资料。
 
-✍️以下是协议官方提供的一个极简化领域资料示例。
+✍️ 以下是协议官方提供的一个极简化领域资料示例。
 
 ```json showLineNumbers
 /*
@@ -195,5 +195,28 @@ yarn cli mint-realm --initialowner=接收地址 --funding=付款地址私钥 --s
             }
         }
     }
+}
+```
+
+ARC20.ME 还添加了几个额外字段用来显示 banner 和背景图片。这正好体现了 Atomicals 协议的开放性，任何人都可以修改领域资料的格式，添加不同字段以丰富领域的使用场景。
+
+```json showLineNumbers
+// 所有图像 URN 既可以是 Atomicals 协议下的引用，也可以是任何有效的图像 URL。
+{
+    "v": "1.2",
+    "name": "User or profile title or name",
+    "image": "atom:btc:id:<atomicalId>/image.jpg",
+    "banner": "atom:btc:id:<atomicalId>/banner.jpg",
+    "background": "atom:btc:id:<atomicalId>/background.jpg",
+    "desc": "Lorem ipsum dolor sit amet...",
+}
+// 或
+{
+    "v": "1.2",
+    "name": "User or profile title or name",
+    "image": "https://example.com/image.png",
+    "banner": "https://example.com/banner.jpg",
+    "background": "https://example.com/background.jpg",
+    "desc": "Lorem ipsum dolor sit amet...",
 }
 ```

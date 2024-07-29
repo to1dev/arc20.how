@@ -84,12 +84,6 @@ const config = {
                     },
                     { to: "/blog", label: "博客", position: "left" },
                     {
-                        href: "https://arc20.me/to1dev",
-                        className: "header-arc20me-link",
-                        position: "right",
-                        "aria-label": "ARC20.ME",
-                    },
-                    {
                         href: "https://x.com/to1dev",
                         className: "header-x-link",
                         position: "right",
@@ -100,6 +94,12 @@ const config = {
                         className: "header-github-link",
                         position: "right",
                         "aria-label": "GitHub repository",
+                    },
+                    {
+                        href: "https://arc20.me/to1dev",
+                        className: "header-arc20me-link",
+                        position: "right",
+                        "aria-label": "ARC20.ME",
                     },
                 ],
             },
