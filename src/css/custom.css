@@ -71,6 +71,29 @@ button {
     color: rgb(239 68 68);
 }
 
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.buttonContainer .button {
+    margin: 5px 0;
+}
+
+@media (max-width: 640px) {
+    .buttonContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buttonContainer .button {
+        width: 100%;
+    }
+}
+
 pre,
 code {
     font-style: normal;

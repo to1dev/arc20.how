@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import React from 'react';
+import Link from '@docusaurus/Link';
 import a1 from './img/a1.gif';
 import a2 from './img/a2.gif';
 import a3 from './img/a3.webp';
@@ -294,3 +296,62 @@ yarn cli set --funding=付款地址私钥 --satsbyte=交易费 --bitworkc=8888 -
 ```
 
 命令运行后，会发起一个比特币交易，将对应的 NFT 数据更新为当前 profile.json 的内容。由于采用了委托机制，指向该数据的领域也会自动更新其资料。
+
+:::tip
+
+如果你已经更新了当前领域资料，需要清除 ARC20.ME 现有的领域资料缓存。只需在你的领域网址后加上 `?action=update` 参数即可。
+
+:::
+
+<div className='buttonContainer'>
+<Link
+    className="button button--primary"
+    style={{
+        border: 'none',
+        color: 'white',
+        padding: '15px 32px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '16px',
+        margin: '4px 2px',
+        cursor: 'pointer',
+        borderRadius: '4px'
+    }}
+    to="https://arc20.me"
+>访问 ARC20.ME</Link>
+
+<Link
+    className="button button--info"
+    style={{
+        border: 'none',
+        color: 'white',
+        padding: '15px 32px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '16px',
+        margin: '4px 2px',
+        cursor: 'pointer',
+        borderRadius: '4px'
+    }}
+    to="https://arc20.me/to1dev"
+>to1dev 示例</Link>
+
+<Link
+    className="button button--warning"
+    style={{
+        border: 'none',
+        color: 'white',
+        padding: '15px 32px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '16px',
+        margin: '4px 2px',
+        cursor: 'pointer',
+        borderRadius: '4px'
+    }}
+    to="https://arc20.me/jigsaw"
+>Jigsaw 示例</Link>
+</div>
