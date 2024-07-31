@@ -13,27 +13,27 @@ import am_connect from './img/am-connect.png';
 
 # 教程
 
-如何用 ARC20.ME 显示你的 Realm 资料
+如何在 ARC20.ME 显示你的领域资料
 
 :::info
 
-目前，ARC20.ME 还处于早期版本，尚未内置铸造 Realm 和制作 Realm 资料的功能。因此，我们将使用第三方工具来完成领域铸造和资料制作。
+目前，ARC20.ME 仍处于早期版本，尚未内置铸造领域和制作领域资料的功能。因此，我们将使用第三方工具来完成领域铸造和资料制作。
 
 :::
 
-接下来，我将详细讲解整个流程，只需按照以下步骤操作，即可完成一个 Realm 资料页面的创建。
+接下来，我将详细讲解整个流程，只需按照以下步骤操作，即可完成一个领域资料页面的创建。
 
 ## 1. 铸造领域
 
 目前，铸造领域（Realm）主要有三种方法：
 
-- 协议官方的命令行工具（[Atomicals-js Cli](https://github.com/to1dev/atomicals-js)）
-- 钱包和交易市场提供的铸造工具（[Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)、[AtomicalMarket 市场](https://atomicalmarket.com/mint/realm)）
-- 提供领域铸造功能的第三方网站（[Realmbullrun](https://realmbullrun.com/mint-subrealm)）
+1. 使用协议官方的命令行工具（[Atomicals-js Cli](https://github.com/to1dev/atomicals-js)）
+2. 使用钱包和交易市场提供的铸造工具（[Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)、[AtomicalMarket 市场](https://atomicalmarket.com/mint/realm)）
+3. 使用提供领域铸造功能的第三方网站（[Realmbullrun](https://realmbullrun.com/mint-subrealm)）
 
 :::tip
 
-多数情况下我们会使用方法一和方法二来铸造领域，所以，这里重点讲解这两种方法。其中，第二种方法最为简单，也最适合新手，因此我们先讲解如何使用 Wizz 钱包和 Atomical Market 市场铸造领域。
+多数情况下，我们会使用方法一和方法二来铸造领域。因此，这里重点讲解这两种方法。第二种方法最为简单，也最适合新手，因此我们先讲解如何使用 Wizz 钱包和 Atomical Market 市场来铸造领域。
 
 :::
 
@@ -41,25 +41,25 @@ import am_connect from './img/am-connect.png';
 
 :::warning
 
-这里假定你已经安装好了 Wizz 钱包，并已创建或导入了你的比特币助记词。如果你尚未安装，请先移步至谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
+这里假定你已经安装了 Wizz 钱包，并创建或导入了你的比特币助记词。如果尚未安装，请前往谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
 
 :::
 
-下面，让我来演示如何一步步的铸造一个领域（Realm），这里我们将铸造 Bureau 这个名称。
+接下来，我将演示如何一步步铸造一个领域（Realm）。在这个示例中，我们将铸造名为 Bureau 的领域。
 
 1. 点击谷歌浏览器右上方的 Wizz 钱包图标<img src={wizz_icon} width="32" />，在弹出的主界面上点击 **Mint** 按钮。
 
 <img src={a1} width="400" />
 
-2. 进入钱包自带的铸造页面前，先勾选 **I accept...** 按钮接受条款，然后点击 **I Understand** 按钮。
+2. 在进入钱包自带的铸造页面之前，先勾选 **I accept...** 按钮以接受条款，然后点击 **I Understand** 按钮。
 
 <img src={a2} width="400" />
 
-3. 在钱包的铸造页面，选择 **Realm** 页，然后选中 **Realm** 选项，在输入框输入你要铸造的 Realm 名称，这里我们输入 bureau。
+3. 在钱包的铸造页面，选择 **Realm** 页，然后选中 **Realm** 选项。在输入框中输入你要铸造的 Realm 名称，这里我们输入 "bureau"。
 
 <img src={a3} width="400" />
 
-4. 如果没有出现错误提示，表示当前名称有效，可以铸造。如果想使用其它地址接收铸造的 Realm，可以勾选 **Received By Other Address**，然后点击 **Mint Realm** 按钮，按照弹出的钱包提示签名，即可完成铸造。
+4. 如果没有出现错误提示，说明当前名称有效，可以进行铸造。如果你想使用其他地址接收铸造的领域，可以勾选 **Received By Other Address**。然后点击 **Mint Realm** 按钮，并按照弹出的钱包提示进行签名，即可完成铸造。
 
 <img src={a4} width="400" />
 
@@ -67,7 +67,7 @@ import am_connect from './img/am-connect.png';
 
 :::warning
 
-使用 Atomical Market 同样需要安装支持 ARC20 协议的钱包，这里假定你已经安装好了 Wizz 钱包，并已创建或导入了你的比特币助记词。如果你尚未安装，请先移步至谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
+使用 Atomical Market 需要安装支持 ARC20 协议的钱包。这里假定你已经安装了 Wizz 钱包，并创建或导入了你的比特币助记词。如果尚未安装，请前往谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
 
 :::
 
@@ -75,11 +75,11 @@ import am_connect from './img/am-connect.png';
 
 <img src={am_connect} width="400" />
 
-2. 在弹出的钱包选择框中选择 **Wizz Wallet** 进行连接。（你也可以选择其它钱包，但是 Wizz 钱包对 ARC20 的支持度最高，所以推荐使用 Wizz 钱包）
+2. 在弹出的钱包选择框中选择 **Wizz Wallet** 进行连接。（你也可以选择其它钱包，但由于 Wizz 钱包对 ARC20 的支持度最高，因此推荐使用 Wizz 钱包）
 
 <img src={a5} width="400" />
 
-3. 钱包连接后，在 Realm 名称输入框中输入你要铸造的名称，这里我们输入 bureau，然后点击 **Next**，在弹出的确认框中点击 **Mint** 按钮。最后，按照弹出的钱包提示进行签名即可完成铸造。
+3. 连接钱包后，在 Realm 名称输入框中输入你要铸造的名称，例如 "bureau"，然后点击 **Next**。在弹出的确认框中点击 **Mint** 按钮。最后，按照弹出的钱包提示进行签名，即可完成铸造。
 
 <img src={a6} width="400" />
 
@@ -87,11 +87,11 @@ import am_connect from './img/am-connect.png';
 
 :::tip
 
-要使用协议命令行工具，需要熟练掌握操作系统的控制台，了解如何安装 npm 软件包，以及克隆 GitHub 仓库。这里假定你的系统已经安装了 Git 和 npm 运行环境。（在安装 npm 运行环境后，记得在控制台输入 ```corepack enable``` 激活 **yarn** 命令）
+要使用协议命令行工具，需要熟练掌握操作系统的控制台，了解如何安装 npm 软件包，以及如何克隆 GitHub 仓库。这里假定你的系统已经安装了 Git 和 npm 运行环境。安装 npm 运行环境后，请记得在控制台输入 `corepack enable` 以激活 **yarn** 命令。
 
 :::
 
-1. 克隆协议命令行源码仓库，安装所需依赖包，然后编译。
+1. 克隆协议命令行源码仓库，安装所需依赖包，然后进行编译。
 
 ```bash showLineNumbers
 git clone https://github.com/to1dev/atomicals-js.git
@@ -102,7 +102,7 @@ yarn build
 
 :::info
 
-这里选择克隆 [https://github.com/to1dev](https://github.com/to1dev/atomicals-js) 的协议命令行源码仓库，是由于索引服务器 1.5.1.0 的更新，导致 API 参数有所变化，官方源的命令行在铸造 Realm 时会出现错误，所以暂时选择 [https://github.com/to1dev](https://github.com/to1dev/atomicals-js) 的修正版。一旦我们提交的 PR 通过，将会换回官方源仓库。
+选择克隆 https://github.com/to1dev/atomicals-js 的协议命令行源码仓库，是因为索引服务器在 1.5.1.0 更新后，API 参数有所变化，导致官方源的命令行在铸造领域时会出现错误。因此，我们暂时使用 https://github.com/to1dev/atomicals-js 的修正版。一旦我们提交的 PR 获得通过，将会切换回官方源仓库。
 
 :::
 
@@ -131,9 +131,9 @@ yarn cli get-realm bureau
 
 ```bash showLineNumbers
 # **接收地址** 填写你准备用来接收这个领域名称的比特币钱包地址
-# **付款地址私钥** 填写你为铸造交易付款的比特币地址的 WIF 私钥（这个私钥也可以提前通过 yarn cli wallet-import 命令导入）
+# **付款地址私钥** 填写你为铸造交易付款的比特币地址的 WIF 私钥（这个私钥可以提前通过 yarn cli wallet-import 命令导入为别名）
 # **交易费** 填写比特币交易矿工费，可以参考 https://mempool.space/ 获取最新值
-# **bitworkc** 不懂的直接取默认 8888
+# **bitworkc** 不懂什么意思的话，直接取默认值 8888
 yarn cli mint-realm --initialowner=接收地址 --funding=付款地址私钥 --satsbyte=交易费 --bitworkc=8888 bureau
 ```
 
@@ -147,7 +147,7 @@ yarn cli mint-realm --initialowner=接收地址 --funding=付款地址私钥 --s
 
 :::
 
-### 1). 制作领域资料
+### 1). 编辑领域资料
 
 领域资料本质上是一个 JSON 文件（JSON 文件是一种用于存储和交换数据的纯文本文件，使用键值对和数组来表示数据结构）。所以，我们可以使用任何文本编辑器编辑领域资料。下面，我们根据协议官方推荐的格式来一步步制作一份领域资料。
 
@@ -198,10 +198,15 @@ yarn cli mint-realm --initialowner=接收地址 --funding=付款地址私钥 --s
 }
 ```
 
-ARC20.ME 还添加了几个额外字段用来显示 banner 和背景图片。这正好体现了 Atomicals 协议的开放性，任何人都可以修改领域资料的格式，添加不同字段以丰富领域的使用场景。
+ARC20.ME 还添加了几个额外字段，用于显示横幅和背景图片。这充分体现了 Atomicals 协议的开放性，任何人都可以修改领域资料的格式，添加不同字段，以丰富领域的使用场景。
 
 ```json showLineNumbers
-// 所有图像 URN 既可以是 Atomicals 协议下的引用，也可以是任何有效的图像 URL。
+/*
+** 所有图像 URN 既可以是 Atomicals 协议下的引用，也可以是任何有效的图像 URL。
+**
+** 背景 background
+** 横幅 banner
+*/
 {
     "v": "1.2",
     "name": "User or profile title or name",
@@ -220,3 +225,72 @@ ARC20.ME 还添加了几个额外字段用来显示 banner 和背景图片。这
     "desc": "Lorem ipsum dolor sit amet...",
 }
 ```
+
+:::tip
+
+目前，`desc` 字段支持部分 HTML 标签，例如 `<div>` 和 `<video>`。你可以通过插入 HTML 来自定义领域资料的个人简介。
+
+:::
+
+### 2). 领域资料上链
+
+当领域资料编辑完成后，可以发起一个交易，将资料的 JSON 文件铸造成比特币区块链上的永久记录。整个过程可以通过以下命令完成。
+
+```bash showLineNumbers
+# **付款地址私钥** 填写你为铸造交易付款的比特币地址的 WIF 私钥（这个私钥可以提前通过 yarn cli wallet-import 命令导入为别名）
+# **交易费** 填写比特币交易矿工费，可以参考 https://mempool.space/ 获取最新值
+# **bitworkc** 不懂什么意思的话，直接取默认值 8888
+# **profile.json** 领域资料 JSON 文件名，可以是任意名称
+yarn cli mint-nft-json --funding=付款地址私钥 --satsbyte=交易费 --bitworkc=8888 profile.json
+# 命令运行过程中会打印出下一步骤需要的 atomical_id 等信息
+```
+
+`mint-nft-json` 命令会将你的领域资料 JSON 文件铸造为比特币区块链上的一个 NFT，而该 NFT 是后续步骤中不可或缺的重要部分。在这里，**我们需要记录生成的 NFT 的 atomical_id**，以备后用。
+
+### 3). 引用领域资料
+
+最后一步，也是最重要的一步，就是将领域指向上一步铸造的 NFT。Atomicals 协议推荐使用委托机制来引用领域资料，这样每次更新领域资料时只需更新指向的 NFT 即可，无需重新铸造新的 NFT。对于需要频繁更新的领域，这种方法可以节省大量的交易费用和工作量。
+
+首先，我们需要新建一个 d.json 文件，并输入以下信息。
+
+```json showLineNumbers
+// 这里的 d 是英文单词 delegate（委托）的缩写
+{
+    "d": "输入上一步生成的 NFT 的 atomical_id"
+}
+```
+
+有了这个 d.json 文件后，我们就可以将其中的数据附加到我们的领域上。这样一来，我们的领域就可以指向刚才创建的领域资料 NFT。通过这种委托机制，领域和领域资料被绑定在一起。每次更新领域资料 NFT 的内容，领域的数据也会随之更新。
+
+下面，我们将通过 `set` 命令把这个 d.json 文件附加到我们的领域上。
+
+```bash showLineNumbers
+# **付款地址私钥** 填写你为铸造交易付款的比特币地址的 WIF 私钥（这个私钥可以提前通过 yarn cli wallet-import 命令导入为别名）
+# **交易费** 填写比特币交易矿工费，可以参考 https://mempool.space/ 获取最新值
+# **bitworkc** 不懂什么意思的话，直接取默认值 8888
+# **拥有者地址私钥** 当前领域的拥有者地址 WIF 私钥或别名（这个 WIF 私钥可以提前通过 yarn cli wallet-import 命令导入为别名）
+# **atomical_id** 对应领域的 atomical_id
+# **d.json** 上一步制作的 d.json 文件名（实际路径）
+yarn cli set --funding=付款地址私钥 --satsbyte=交易费 --bitworkc=8888 --owner=拥有者地址私钥 atomical_id d.json
+```
+
+当命令执行完毕后，一个比特币交易将被广播出去。一旦交易上链，这个 `d.json` 文件就会成功附加到我们的领域上，领域也会成功指向前一步创建的领域资料 NFT。
+
+至此，一个完整的领域资料就铸造成功了。现在，你可以通过访问类似这样的链接 https://arc20.me/to1dev 查看你的领域页面。
+
+### 4). 更新领域资料
+
+当需要修改领域资料时，只需修改上一步创建的 profile.json 文件，然后使用 `set` 命令更新对应的 NFT 数据。
+
+```bash showLineNumbers
+# **付款地址私钥** 填写你为铸造交易付款的比特币地址的 WIF 私钥（这个私钥可以提前通过 yarn cli wallet-import 命令导入为别名）
+# **交易费** 填写比特币交易矿工费，可以参考 https://mempool.space/ 获取最新值
+# **bitworkc** 不懂什么意思的话，直接取默认值 8888
+# **拥有者地址私钥** 当前领域的拥有者地址 WIF 私钥或别名（这个 WIF 私钥可以提前通过 yarn cli wallet-import 命令导入为别名）
+# **atomical_id** 对应 NFT 的 atomical_id
+# **profile.json** 领域资料 JSON 数据文件名（实际路径）
+yarn cli set --funding=付款地址私钥 --satsbyte=交易费 --bitworkc=8888 --owner=拥有者地址私钥 atomical_id profile.json
+# 命令运行过程中会打印出下一步骤需要的 atomical_id 等信息
+```
+
+命令运行后，会发起一个比特币交易，将对应的 NFT 数据更新为当前 profile.json 的内容。由于采用了委托机制，指向该数据的领域也会自动更新其资料。
