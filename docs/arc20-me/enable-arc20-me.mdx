@@ -41,9 +41,15 @@ import am_connect from './img/am-connect.png';
 
 ### 1). 使用 Wizz 钱包铸造
 
-:::warning
+:::tip
 
 这里假定你已经安装了 Wizz 钱包，并创建或导入了你的比特币助记词。如果尚未安装，请前往谷歌应用商店安装 [Wizz 钱包](https://chromewebstore.google.com/detail/wizz-wallet/ghlmndacnhlaekppcllcpcjjjomjkjpg)。
+
+:::
+
+:::warning
+
+请注意！直接使用 Wizz 钱包铸造领域会有**每笔 6,000 聪的手续费**。
 
 :::
 
@@ -61,7 +67,7 @@ import am_connect from './img/am-connect.png';
 
 <img src={a3} width="400" />
 
-4. 如果没有出现错误提示，说明当前名称有效，可以进行铸造。如果你想使用其他地址接收铸造的领域，可以勾选 **Received By Other Address**。然后点击 **Mint Realm** 按钮，并按照弹出的钱包提示进行签名，即可完成铸造。
+4. 如果没有出现错误提示，说明当前名称有效，可以进行铸造。如果你想使用其他地址接收铸造的领域，可以勾选 **Received By Other Address**，在出现的输入框中填入你想要的领域接收地址，然后点击 **Mint Realm** 按钮，并按照弹出的钱包提示进行签名，即可完成铸造。
 
 <img src={a4} width="400" />
 
@@ -143,7 +149,7 @@ yarn cli mint-realm --initialowner=接收地址 --funding=付款地址私钥 --s
 
 :::tip
 
-目前，领域资料的铸造还是依靠协议命令行工具。如果你还没有安装该工具，请先参考[上面](enable-arc20-me#3-%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E9%93%B8%E9%80%A0)的流程进行安装。
+目前，领域资料的铸造还是依靠协议命令行工具。如果你还没有安装该工具，请先参考[上面](#3-%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E9%93%B8%E9%80%A0)的流程进行安装。
 
 待安装完成后，按照以下步骤制作并铸造领域资料。
 
