@@ -144,7 +144,7 @@ const config = {
                                 href: "https://github.com/atomicals",
                             },
                             {
-                                label: "Etherscan Gas Tracker",
+                                label: "Ethereum Gas Tracker",
                                 href: "https://ethgas.site",
                             },
                         ],
