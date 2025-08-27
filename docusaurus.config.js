@@ -143,6 +143,10 @@ const config = {
                                 label: "源码",
                                 href: "https://github.com/atomicals",
                             },
+                            {
+                                label: "Etherscan Gas Tracker",
+                                href: "https://ethgas.site",
+                            },
                         ],
                     },
                 ],
