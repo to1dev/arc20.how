@@ -145,7 +145,7 @@ const config = {
                             },
                             {
                                 label: "Ethereum Gas Tracker",
-                                href: "https://ethgas.site",
+                                href: "https://ethgas.net",
                             },
                         ],
                     },
